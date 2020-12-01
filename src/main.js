@@ -16,12 +16,11 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-// 引入全局指令
-import '@/directives/elDragDialog'
-
 // 引入全局组件
 import plugins from './components/index'
 Vue.use(plugins)
+// 引入全局指令
+import '@/dires/elDragDialog'
 
 new Vue({
   router,
