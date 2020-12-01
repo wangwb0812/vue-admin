@@ -20,7 +20,8 @@ Object.keys(filters).forEach(key => {
 import plugins from './components/index'
 Vue.use(plugins)
 // 引入全局指令
-import '@/dires/elDragDialog'
+import '@/dires/drag'
+import '@/dires/icon'
 
 new Vue({
   router,
