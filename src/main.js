@@ -5,7 +5,7 @@ import store from './store'
 import './registerServiceWorker'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
+import mock from './mock'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
@@ -21,7 +21,6 @@ import plugins from './components/index'
 Vue.use(plugins)
 // 引入全局指令
 import '@/dires/drag'
-import '@/dires/icon'
 
 new Vue({
   router,

@@ -15,26 +15,27 @@
 </template>
 
 <script>
-import { loginByUsername, fetchPublicKey } from  '@/api/user.js'
+import { mapActions } from 'vuex'
 export default {
 	data() {
 		return {
 			form: {}
 		}
 	},
+	computed:{
+	
+	},
 	methods:{
+		...mapActions({ loginByPwd: 'user/loginByPwd' }),
 		handleLogin() {
-			fetchPublicKey().then(res => {
+			this.loginByPwd(this.form).then(res => {
 				console.log(res)
-				loginByUsername(this.form)
 			})
-			
 		}
 	}
 };
 </script>
 
 <style lang="scss" scoped>
-.login {
-}
+
 </style>
