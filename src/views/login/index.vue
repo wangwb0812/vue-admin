@@ -8,7 +8,7 @@
 				<el-input type="password" v-model="form.password"></el-input>
 			</el-form-item>
 			<el-form-item>
-				<el-button type="primary" @click="handleLogin">登录</el-button>
+				<el-button :loading="loading" type="primary" @click="handleLogin">登录</el-button>
 			</el-form-item>
 		</el-form>
 	</div>
@@ -19,6 +19,7 @@ import { mapActions } from 'vuex'
 export default {
 	data() {
 		return {
+			loading: false,
 			form: {}
 		}
 	},
@@ -28,8 +29,13 @@ export default {
 	methods:{
 		...mapActions({ loginByPwd: 'user/loginByPwd' }),
 		handleLogin() {
+			this.loading = true
 			this.loginByPwd(this.form).then(res => {
+				this.loading = false
 				console.log(res)
+			}).catch(err => {
+				this.loading = false
+				throw new Error(err)
 			})
 		}
 	}
