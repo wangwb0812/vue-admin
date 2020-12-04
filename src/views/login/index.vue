@@ -30,9 +30,9 @@ export default {
 		...mapActions({ loginByPwd: 'user/loginByPwd' }),
 		handleLogin() {
 			this.loading = true
-			this.loginByPwd(this.form).then(res => {
+			this.loginByPwd(this.form).then(() => {
 				this.loading = false
-				console.log(res)
+				this.$router.push('/home')
 			}).catch(err => {
 				this.loading = false
 				throw new Error(err)
