@@ -1,7 +1,9 @@
 <template>
 	<div class="sidebar-container" :class="{ isCollapse: isCollapse }">
 		<div class="muen-top">
-			<img class="muen-top-icon" src="../../../assets/logo.png" />
+			<div class="muen-top-icon-wrapper">
+			  <img class="muen-top-icon" src="../../../assets/logo.png" />
+			</div>
 			<span class="muen-top-title">管理系统</span>
 		</div>
 		<el-scrollbar wrap-class="scrollbar-wrapper">
@@ -75,14 +77,17 @@ export default {
 	.muen-top {
 		height: 50px;
 		line-height: 50px;
-		padding: 0 15px;
 		background-color: #2b2f3a;
-		.muen-top-icon {
-			width: 32px;
-			height: 32px;
-			vertical-align: middle;
+		.muen-top-icon-wrapper {
 			display: inline-block;
-			margin-right: 10px;
+			width: 64px;
+			height: 50px;
+			text-align: center;
+			.muen-top-icon {
+				width: 32px;
+				height: 32px;
+				vertical-align: middle;
+			}
 		}
 		.muen-top-title {
 			color: #fff;
