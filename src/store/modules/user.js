@@ -1,5 +1,6 @@
 import {
-	login
+	login,
+	fetchUserMenuList
 } from '@/api/user'
 
 const state = {
@@ -36,7 +37,16 @@ const actions = {
 	setMenuList({
 		commit
 	}, params) {
-		commit('SET_MENU_LIST', params)
+		return new Promise((resolve, reject) => {
+			fetchUserMenuList().then(response => {
+				commit('SET_MENU_LIST', response)
+				resolve(response)
+			}).catch(err => {
+				reject(err)
+			})
+		}).catch(error => {
+			throw new Error(error)
+		})
 	}
 }
 

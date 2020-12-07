@@ -27,12 +27,7 @@ const constantRoutes = [{
 ]
 
 export const asyncRoutes = [
-	user,
-	{
-		path: '*',
-		name: '*',
-		redirect: '/404'
-	}
+	user
 ]
 
 const router = new VueRouter({
