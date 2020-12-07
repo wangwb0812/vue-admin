@@ -36,7 +36,7 @@ const actions = {
 	// 设置菜单
 	setMenuList({
 		commit
-	}, params) {
+	}) {
 		return new Promise((resolve, reject) => {
 			fetchUserMenuList().then(response => {
 				commit('SET_MENU_LIST', response)
