@@ -6,28 +6,42 @@ const userInfo = () => ({
 	userImg: Random.dataImage('200x160', '这是图片中的文本'),
 	userNmae: Random.cname()
 })
-const menuList = () => [
-	{ 
+const menuList = () => [{
+		id: '0',
+		name: 'Home',
+		title: '首页',
+		path: '/home',
+		menuIcon: 'el-icon-s-help'
+	},
+	{
 		id: '1',
 		name: 'User',
-		menuKey: 'User',
+		title: '用户',
 		path: '/user',
-		children: [
-			{
+		menuIcon: 'el-icon-user-solid',
+		children: [{
 				id: '1-1',
 				name: 'UserInfo',
-				menuKey: 'UserInfo',
-				path: 'info',
+				title: '用户信息',
+				path: '/user/info',
+				menuIcon: 'el-icon-user'
+			},
+			{
+				id: '1-2',
+				name: 'UserResetPsd',
+				title: '修改密码',
+				path: '/user/resetPsd',
+				menuIcon: 'el-icon-edit'
 			}
 		]
 	}
-] 
+]
 export default [{
 	url: '/login',
 	type: 'post',
 	response: userInfo
-},{
+}, {
 	url: '/menu/list',
 	type: 'post',
-	response: userInfo
+	response: menuList
 }]

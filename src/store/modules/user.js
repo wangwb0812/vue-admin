@@ -1,39 +1,11 @@
-import { login } from '@/api/user'
+import {
+	login,
+	fetchUserMenuList
+} from '@/api/user'
 
 const state = {
 	userInfo: null,
-	menuList: [
-		{
-		  id: '0',
-			name: 'Home',
-			title: '首页',
-			path: '/home',
-			menuIcon: 'el-icon-s-help'
-		},
-		{
-		  id: '1',
-			name: 'User',
-			title: '用户',
-			path: '/user',
-			menuIcon: 'el-icon-user-solid',
-			children: [
-				{
-					id: '1-1',
-					name: 'UserInfo',
-					title: '用户信息',
-					path: '/user/info',
-					menuIcon: 'el-icon-user'
-				},
-				{
-					id: '1-2',
-					name: 'UserResetPsd',
-					title: '修改密码',
-					path: '/user/resetPsd',
-					menuIcon: 'el-icon-edit'
-				}
-			]
-		}
-	]
+	menuList: []
 }
 
 const mutations = {
@@ -47,8 +19,10 @@ const mutations = {
 
 const actions = {
 	// 登录
-	loginByPwd({ commit }, params) {
-	  return new Promise((resolve, reject) => {
+	loginByPwd({
+		commit
+	}, params) {
+		return new Promise((resolve, reject) => {
 			login(params).then(response => {
 				commit('SET_USER_INFO', response)
 				resolve(response)
@@ -58,8 +32,18 @@ const actions = {
 		})
 	},
 	// 设置菜单
-	setMenuList({ commit }, params) {
-		commit('SET_MENU_LIST', params)
+	setMenuList({
+		commit
+	}, params) {
+		return new Promise((resolve, reject) => {
+			fetchUserMenuList().then(response => {
+				commit('SET_MENU_LIST', response)
+				resolve(response)
+			})
+		}).catch(err => {
+			reject(error)
+		})
+	
 	}
 }
 
