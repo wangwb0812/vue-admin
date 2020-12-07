@@ -1,4 +1,4 @@
-import { axiosPost, axiosGet } from '@/utils/request'
+import { axiosPost } from '@/utils/request'
 // 登录
 export const login = data => axiosPost('/login', data)
 // 获取用户菜单
