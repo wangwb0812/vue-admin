@@ -22,6 +22,18 @@
 	}
 	.tags-view-wrapper {
 		.el-tabs {
+			&.hide-tags-icon {
+				.el-tabs__nav-scroll {
+					.el-tabs__nav {
+						border: none;
+						.el-tabs__item {
+							.el-icon-close {
+								display: none;
+							}
+						}
+				  }
+			  }
+			}
 			.el-tabs__header {
 				border: none;
 				margin: 0;
@@ -70,6 +82,7 @@
 									width: 22px;
 									color: #7d7d7d;
 								}
+								
 								&.is-active,
 								&:hover {
 									background-color: #1875f0;

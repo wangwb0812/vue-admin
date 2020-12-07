@@ -6,10 +6,9 @@ const state = {
 const mutations = {
   ADD_VISITED_VIEW: (state, { rootState, view }) => {
     if (state.visitedViews.some(v => v.path === view.path)) return
-    //const menuKeys = rootState.permission.menuKeys
     let title = ''
     // 公共页面和详情页面的title不可设置
-    if (view.meta && view.meta.tagsView) {
+    if (view.meta && view.meta.title) {
       title = view.meta.title
     } else {
       const str = view.meta && view.meta.parent ? view.meta.parent : view.name
@@ -17,7 +16,7 @@ const mutations = {
       if (view.name === 'Home') {
         title = '首页'
       } else {
-        title = menuKeys[str] ? menuKeys[str].title : ''
+        title =  '未知页面'
       }
     }
     state.visitedViews.push(

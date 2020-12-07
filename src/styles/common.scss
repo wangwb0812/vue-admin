@@ -10,8 +10,20 @@
 	z-index: 1001;
 	overflow: hidden;
 	background: #545c64;
+	.horizontal-collapse-transition {
+	  transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+	}
 	&.isCollapse {
 		width: 64px !important;
+	}
+	.scrollbar-wrapper {
+	  overflow-x: hidden !important;
+	}
+	.el-scrollbar__bar.is-vertical {
+	  right: 0px;
+	}
+	.el-scrollbar {
+	  height: calc(100% - 60px);
 	}
 }
 .main-container {
@@ -38,4 +50,56 @@
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+
+
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* breadcrumb transition */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all .5s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadcrumb-move {
+  transition: all .5s;
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}
+// 滚动条
+.scrollbar-wrapper {
+	overflow-x: hidden !important;
 }

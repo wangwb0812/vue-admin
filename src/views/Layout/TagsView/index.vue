@@ -1,7 +1,14 @@
 <template>
 	<div class="tags-view tags-view-container">
-		<div class="tags-view-wrapper">
-			<el-tabs v-model="activeName" type="card" editable @edit="handleTabsEdit" @tab-click="handleClick">
+		<div class="tags-view-wrapper" v-if="visitedViews && visitedViews.length > 0">
+			<el-tabs
+				v-model="activeName"
+				:class="{ 'hide-tags-icon': visitedViews.length < 2 && visitedViews[0].name === 'Home' }"
+				type="card"
+				editable
+				@edit="handleTabsEdit"
+				@tab-click="handleClick"
+			>
 				<el-tab-pane v-for="tag in visitedViews" closable :key="tag.name" :label="tag.title" :name="tag.name" />
 			</el-tabs>
 			<div class="tags-view-btn" title="标签管理">
@@ -9,8 +16,8 @@
 					<i class="el-icon-arrow-down"></i>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item command="a">关闭其他标签</el-dropdown-item>
-						<el-dropdown-item command="b">关闭当前标签</el-dropdown-item>
-						<el-dropdown-item command="c">关闭所有标签</el-dropdown-item>
+						<!-- <el-dropdown-item command="b">关闭当前标签</el-dropdown-item> -->
+						<!-- <el-dropdown-item command="c">关闭所有标签</el-dropdown-item> -->
 					</el-dropdown-menu>
 				</el-dropdown>
 			</div>
@@ -23,7 +30,7 @@ export default {
 	data() {
 		return {
 			activeName: this.$route.name
-		}
+		};
 	},
 	computed: {
 		visitedViews: {
@@ -74,9 +81,11 @@ export default {
 		},
 		handleClick(tab) {
 			const tabs = this.visitedViews;
-			tabs.forEach((item) => {
+			tabs.forEach(item => {
 				if (tab.name === item.name) {
-					this.$router.push(item);
+					if (this.$route.path !== item.path) {
+						this.$router.push(item);
+					}
 				}
 			});
 		},

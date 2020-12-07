@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '@/views/Layout'
+import user from './modules/user'
 
 Vue.use(VueRouter)
 
-const routes = [
+const constantRoutes = [
   {
     path: '/login',
     name: 'Login',
@@ -18,14 +19,23 @@ const routes = [
 			{
 				path: 'home',
 				name: 'Home',
-				component:  () => import('@/views/Home')
+				component:  () => import('@/views/Home'),
+				meta: {
+					title: '首页'
+				}
 			}
 		]
-	}
+	},
+	user
+]
+
+export const asyncRoutes = [
+  user,
+  { path: '*', name: '*', redirect: '/404' }
 ]
 
 const router = new VueRouter({
-  routes
+  routes: constantRoutes
 })
 
 export default router

@@ -1,7 +1,12 @@
 <template>
 	<div class="sidebar-container" :class="{ isCollapse: isCollapse }">
+		<div class="muen-top">
+			<img class="muen-top-icon" src="../../../assets/logo.png" />
+			<span class="muen-top-title">管理系统</span>
+		</div>
+		<el-scrollbar wrap-class="scrollbar-wrapper">
 		<el-menu
-			default-active="2"
+			:default-active="activeMenu"
 			class="el-menu-vertical-demo"
 			@open="handleOpen"
 			@close="handleClose"
@@ -9,69 +14,82 @@
 			text-color="#fff"
 			active-text-color="#ffd04b"
 			:collapse="isCollapse"
+			collapse-transition
+			router
 		>
-		<el-menu-item index="0">
-			<i class="el-icon-setting"></i>
-			<span slot="title">首页</span>
-		</el-menu-item>
-			<el-submenu index="1">
-				<template slot="title">
-					<i class="el-icon-location"></i>
-					<span>导航一</span>
-				</template>
-				<el-menu-item-group>
+			<template v-for="menuItem in menuList">
+				<el-submenu v-if="menuItem.children && menuItem.children.length > 0" :key="menuItem.id" :index="menuItem.path">
 					<template slot="title">
-						分组一
+						<i :class="menuItem.menuIcon || 'el-icon-setting'"></i>
+						<span slot="title">{{ menuItem.title }}</span>
 					</template>
-					<el-menu-item index="1-1">选项1</el-menu-item>
-					<el-menu-item index="1-2">选项2</el-menu-item>
-				</el-menu-item-group>
-				<el-menu-item-group title="分组2"><el-menu-item index="1-3">选项3</el-menu-item></el-menu-item-group>
-				<el-submenu index="1-4">
-					<template slot="title">
-						选项4
-					</template>
-					<el-menu-item index="1-4-1">选项1</el-menu-item>
+					<!--  二级菜单 -->
+					<el-menu-item v-for="item in menuItem.children" :key="item.id" :index="item.path">
+						<i :class="item.menuIcon || 'el-icon-setting'"></i>
+						<span slot="title">{{ item.title }}</span>
+					</el-menu-item>
 				</el-submenu>
-			</el-submenu>
-			<el-menu-item index="2">
-				<i class="el-icon-menu"></i>
-				<span slot="title">导航二</span>
-			</el-menu-item>
-			<el-menu-item index="3" disabled>
-				<i class="el-icon-document"></i>
-				<span slot="title">导航三</span>
-			</el-menu-item>
-			<el-menu-item index="4">
-				<i class="el-icon-setting"></i>
-				<span slot="title">导航四</span>
-			</el-menu-item>
+				<el-menu-item v-else :key="menuItem.id" :index="menuItem.path">
+					<i :class="menuItem.menuIcon || 'el-icon-setting'"></i>
+					<span slot="title">{{ menuItem.title }}</span>
+				</el-menu-item>
+			</template>
 		</el-menu>
+		</el-scrollbar>
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
+
 export default {
 	data() {
-		return {}
+		return {};
 	},
 	computed: {
-		...mapGetters(['sidebar']),
+		...mapGetters(['sidebar', 'menuList']),
 		isCollapse() {
-			return !this.sidebar.isOpen
+			return !this.sidebar.isOpen;
+		},
+		activeMenu() {
+			const route = this.$route;
+			const { path } = route;
+			return path;
 		}
 	},
 	methods: {
 		handleCollapse() {
-			this.isCollapse = !this.isCollapse
+			this.isCollapse = !this.isCollapse;
 		},
 		handleOpen(key, keyPath) {
-			console.log(key, keyPath)
+			console.log(key, keyPath);
 		},
 		handleClose(key, keyPath) {
-			console.log(key, keyPath)
+			console.log(key, keyPath);
+		}
+	}
+};
+</script>
+<style lang="scss" scoped>
+.sidebar-container {
+	.muen-top {
+		height: 50px;
+		line-height: 50px;
+		padding: 0 15px;
+		background-color: #2b2f3a;
+		.muen-top-icon {
+			width: 32px;
+			height: 32px;
+			vertical-align: middle;
+			display: inline-block;
+			margin-right: 10px;
+		}
+		.muen-top-title {
+			color: #fff;
+			line-height: 50px;
+			font-size: 16px;
+			vertical-align: middle;
 		}
 	}
 }
-</script>
+</style>
