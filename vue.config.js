@@ -22,7 +22,7 @@ module.exports = {
     },
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
-        target: 'http://10.30.17.124:8080',  //代理路径
+        target: 'http://1.1.1.1:8080',  //代理路径
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
