@@ -10,9 +10,10 @@
 				class="el-menu-vertical-demo"
 				@open="handleOpen"
 				@close="handleClose"
-				background-color="#545c64"
-				text-color="#fff"
-				active-text-color="#ffd04b"
+				:background-color="variables.menuBg"
+				:text-color="variables.menuText"
+				:unique-opened="false"
+				:active-text-color="variables.menuActiveText"
 				:collapse="isCollapse"
 				collapse-transition
 				router
@@ -41,7 +42,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
+import variables from '@/styles/variables.scss';
 export default {
 	data() {
 		return {};
@@ -55,6 +56,9 @@ export default {
 			const route = this.$route;
 			const { path } = route;
 			return path;
+		},
+		variables() {
+			return variables;
 		}
 	},
 	methods: {
