@@ -16,10 +16,19 @@ const user = {
 		{
 			path: 'resetPsd',
 			name: 'UserResetPsd',
-			component: () => import('@/views/User/resetPsd'),
+			component: () => import('@/views/User/ResetPsd'),
 			meta: {
 				title: '修改密码',
 				menuIcon: 'el-icon-setting'
+			}
+		},
+		{
+			path: 'permission',
+			name: 'UserPermission',
+			component: () => import('@/views/User/Permission'),
+			meta: {
+				title: '页面权限',
+				menuIcon: 'el-icon-s-tools'
 			}
 		}
 	]

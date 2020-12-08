@@ -71,7 +71,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 .login {
-	background: url(../../assets/login_bg.jpg) no-repeat;
+	background: url(../../assets/login_bg.jpg) no-repeat center;
 	background-size: cover;
 	height: 100%;
 	.login-form-wrapper {

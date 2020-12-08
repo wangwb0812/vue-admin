@@ -11,7 +11,7 @@ const menuList = () => [{
 		name: 'Home',
 		title: '首页',
 		path: '/home',
-		menuIcon: 'el-icon-s-help'
+		menuIcon: 'el-icon-s-home'
 	},
 	{
 		id: '1',
@@ -32,6 +32,13 @@ const menuList = () => [{
 				title: '修改密码',
 				path: '/user/resetPsd',
 				menuIcon: 'el-icon-edit'
+			},
+			{
+				id: '1-3',
+				name: 'UserPermission',
+				title: '页面权限',
+				path: '/user/permission',
+				menuIcon: 'el-icon-s-tools'
 			}
 		]
 	}
