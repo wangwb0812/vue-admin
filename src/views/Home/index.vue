@@ -8,5 +8,6 @@
 .home {
 	text-align: center;
 	font-size: 30px;
+	line-height: 1200px;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
 	<div class="app-main">
-		<transition name="fade-transform" mode="out-in">
-			<keep-alive :include="cachedViews">
-				<router-view :key="key" />
-			</keep-alive>
-		</transition>
+		<el-scrollbar wrap-class="app-main-scrollbar-wrapper">
+			<transition name="fade-transform" mode="out-in">
+				<keep-alive :include="cachedViews"><router-view :key="key" /></keep-alive>
+			</transition>
+		</el-scrollbar>
 	</div>
 </template>
 
@@ -21,5 +21,5 @@ export default {
 			return this.$store.state.tagsView.cachedViews;
 		}
 	}
-}
+};
 </script>
