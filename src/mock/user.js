@@ -16,15 +16,15 @@ const menuList = () => [{
 	{
 		id: '1',
 		name: 'User',
-		title: '用户',
+		title: '用户信息',
 		path: '/user',
 		menuIcon: 'el-icon-user-solid',
 		children: [{
 				id: '1-1',
 				name: 'UserInfo',
-				title: '用户信息',
+				title: '基础信息',
 				path: '/user/info',
-				menuIcon: 'el-icon-user'
+				menuIcon: 'el-icon-tickets'
 			},
 			{
 				id: '1-2',

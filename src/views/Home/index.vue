@@ -1,8 +1,14 @@
 <template>
-	<div class="home">Home</div>
+	<div class="home">{{ $route.meta.title }}</div>
 </template>
 
-<script></script>
+<script>
+export default {
+	data() {
+		return {}
+	}
+}
+</script>
 
 <style>
 .home {

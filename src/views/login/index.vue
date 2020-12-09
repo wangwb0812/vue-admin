@@ -44,7 +44,6 @@ export default {
 			}
 		};
 	},
-	computed: {},
 	methods: {
 		...mapActions({ loginByPwd: 'user/loginByPwd' }),
 		handleLogin() {
