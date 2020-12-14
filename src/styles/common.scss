@@ -1,6 +1,6 @@
 @import '@/styles/variables';
 .sidebar-container {
-	transition: width 0.28s;
+	transition: all 0.28s;
 	width: 210px !important;
 	height: 100%;
 	position: fixed;
@@ -28,7 +28,7 @@
 	}
 }
 .main-container {
-	transition: width 0.28s;
+	transition: all 0.28s;
 	margin-left: 210px;
 	&.main-container-collose {
 		margin-left: 64px !important;

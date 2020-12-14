@@ -1,6 +1,11 @@
 <template>
 	<div class="navbar">
 		<hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+		<div class="left-menu">
+			<el-breadcrumb separator="/">
+				<el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+			</el-breadcrumb>
+		</div>
 		<div class="right-menu">
 			<el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
 				<div class="avatar-wrapper">
@@ -54,6 +59,15 @@ export default {
 		-webkit-tap-highlight-color: transparent;
 		&:hover {
 			background: rgba(0, 0, 0, 0.025);
+		}
+	}
+	.left-menu {
+		float: left;
+		height: 100%;
+		margin-left: 20px;
+		line-height: 100%;
+		.el-breadcrumb {
+			line-height: 46px;
 		}
 	}
 	.right-menu {
