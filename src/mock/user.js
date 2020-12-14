@@ -38,7 +38,29 @@ const menuList = () => [{
 				name: 'UserPermission',
 				title: '页面权限',
 				path: '/user/permission',
-				menuIcon: 'el-icon-s-tools'
+				menuIcon: 'el-icon-s-help'
+			}
+		]
+	},
+	{
+		id: '2',
+		name: 'System',
+		title: '系统管理',
+		path: '/system',
+		menuIcon: 'el-icon-s-tools',
+		children: [{
+				id: '2-1',
+				name: 'SystemUser',
+				title: '用户管理',
+				path: '/system/user',
+				menuIcon: 'el-icon-s-custom'
+			},
+			{
+				id: '2-2',
+				name: 'SystemRole',
+				title: '角色管理',
+				path: '/system/role',
+				menuIcon: 'el-icon-date'
 			}
 		]
 	}

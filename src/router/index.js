@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '@/views/Layout'
 import user from './modules/user'
-
+import system from './modules/system'
 Vue.use(VueRouter)
 
 const constantRoutes = [{
@@ -23,7 +23,8 @@ const constantRoutes = [{
 			}
 		}]
 	},
-	user
+	user,
+	system
 ]
 
 export const asyncRoutes = [

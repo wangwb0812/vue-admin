@@ -4,6 +4,7 @@
 
 <script>
 export default {
+	name: 'UserResetPsd',
 	data() {
 		return {}
 	}
