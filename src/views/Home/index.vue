@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <homeEcharts></homeEcharts>
+    <homeEcharts />
     {{ $route.meta.title }}
   </div>
 </template>
