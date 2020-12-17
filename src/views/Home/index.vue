@@ -10,11 +10,12 @@ import homeEcharts from "@/components/Charts";
 export default {
   name: "Home",
   components: {
-    homeEcharts
+    homeEcharts,
   },
   data() {
     return {};
   },
+  methods: {},
 };
 </script>
 
