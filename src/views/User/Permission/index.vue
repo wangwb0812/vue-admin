@@ -15,17 +15,22 @@
 export default {
   name: "UserPermission",
   data() {
-    return {};
+    return {
+      timer: null
+    };
   },
   mounted() {
     this.draw();
-    setInterval(() => {
+    this.clock();
+    this.timer = setInterval(() => {
       this.clock();
     }, 1000)
-    
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
   methods: {
-    // 运动的小球
+    // 时钟
     clock() {
       const clk = document.getElementById("clock");
       if (clk.getContext) {
@@ -126,7 +131,7 @@ export default {
         ctx.restore();
       }
     },
-
+    // 运动的小球
     draw() {
       const canvas = document.querySelector("canvas");
       canvas.width = 300;
