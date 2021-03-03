@@ -2,9 +2,10 @@
 	<div class="app-main">
 		<el-scrollbar wrap-class="app-main-scrollbar-wrapper">
 			<transition name="fade-transform" mode="out-in">
-				<keep-alive :include="cachedViews">
+				<!-- <keep-alive :include="cachedViews">
 					<router-view :key="key" />
-				</keep-alive>
+				</keep-alive> -->
+				<router-view :key="key" />
 			</transition>
 		</el-scrollbar>
 	</div>
