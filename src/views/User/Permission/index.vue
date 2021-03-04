@@ -58,7 +58,7 @@ export default {
           } else {
             ctx.lineWidth = 1;
             ctx.moveTo(0, 4 - r);
-            ctx.lineTo(0, 16 - r);
+            ctx.lineTo(0, 14 - r);
           }
           ctx.rotate((6 * Math.PI) / 180);
           ctx.stroke();
@@ -78,13 +78,12 @@ export default {
         }
         
         // 针
-
         const Ttime = new Date()
         const h = Ttime.getHours()
         const m = Ttime.getMinutes()
         const s = Ttime.getSeconds()
         
-        const hr = 30*h + m/2+ s/120
+        const hr = 30*h + m/2 + s/120
         const mr = 6 * m + s/10
         const sr = s * 6
         
@@ -190,6 +189,6 @@ export default {
 }
 #canvas,
 #clock {
-  border: 1px solid #ff0000;
+  // border: 1px solid #ff0000;
 }
 </style>
