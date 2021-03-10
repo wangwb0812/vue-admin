@@ -22,6 +22,23 @@
           <el-dropdown-item @click.native="logout">
             <span>退出</span>
           </el-dropdown-item>
+          <el-dropdown
+            placement="left"
+            trigger="click"
+            @command="handleCommand"
+          >
+            <el-dropdown-item>
+              <span>主题</span>
+            </el-dropdown-item>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="default-theme">
+                <span>主题1</span>
+              </el-dropdown-item>
+              <el-dropdown-item command="red-theme">
+                <span>主题2</span>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -46,6 +63,11 @@ export default {
     },
     logout() {
       this.$router.push("/login");
+    },
+    handleCommand(command) {
+      if (command) {
+        window.document.documentElement.setAttribute("data-theme", command);
+      }
     },
   },
 };

@@ -1,0 +1,28 @@
+@import './themeColor.scss';
+
+@mixin base-background() {
+  @each $themename,
+  $theme in $themes {
+    [data-theme='#{$themename}'] & {
+      background: map-get($map: $theme, $key: base-color)
+    }
+  }
+}
+
+@mixin base-border() {
+  @each $themename,
+  $theme in $themes {
+    [data-theme='#{$themename}'] & {
+      border-color: map-get($map: $theme, $key: border-color)
+    }
+  }
+}
+
+@mixin base-font() {
+  @each $themename,
+  $theme in $themes {
+    [data-theme='#{$themename}'] & {
+      color: map-get($map: $theme, $key: font-color)
+    }
+  }
+}

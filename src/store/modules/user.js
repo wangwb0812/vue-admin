@@ -4,12 +4,13 @@ import {
 } from '@/api/user'
 
 const state = {
-	userInfo: null,
+	userInfo: JSON.parse(localStorage.getItem('userInfo')) || null,
 	menuList: []
 }
 
 const mutations = {
 	SET_USER_INFO(state, data) {
+		localStorage.setItem('userInfo', JSON.stringify(data))
 		state.userInfo = data
 	},
 	SET_MENU_LIST(state, data) {

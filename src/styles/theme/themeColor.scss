@@ -1,0 +1,18 @@
+// 默认主题
+$default-theme : (
+  base-color: #ccc,
+  border-color: pink,
+  font-color: green
+);
+//红色主题
+$red-theme : (
+  base-color: red,
+  border-color: green,
+  font-color: yellow
+);
+//定义映射集合
+$themes: (
+  default-theme: $default-theme,
+  red-theme: $red-theme
+);
+
